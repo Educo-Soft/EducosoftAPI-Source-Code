@@ -1,0 +1,1121 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EducosoftAPI</name>
+    </assembly>
+    <members>
+        <member name="T:EducosoftAPI.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EducosoftAPI.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="T:UserCredentialModelBinder">
+            <summary>
+            Summary description for UserCredentialModelBinder
+            </summary>
+        </member>
+        <member name="F:EducosoftAPI.Models.PageBase.colSeperator">
+            <summary>
+            This block using to define for common variables contains DB col and row seperators
+            with Special characters
+            </summary>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:EducosoftAPI.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:EducosoftAPI.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:EducosoftAPI.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EducosoftAPI.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:EducosoftAPI.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:EducosoftAPI.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:EducosoftAPI.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:EducosoftAPI.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:EducosoftAPI.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:EducosoftAPI.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.AnnouncementController.GetAnnouncementList(EducosoftAPI.Models.Announcement.AnnouncementCredential)">
+             <summary>
+            This api call takes AnnouncementCredential i.e., 'UserId', 'SectionId', 'Announcement_Type', 'Announcement_OptSel' and 'UserCurrZoneDate' and 
+            return Announcement list details like 'AttachmentFiles', 'Description', 'FilePath', 'PostedDate', with 'status' and 'message' upon successful retrieval of announcement information.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in retrieving announcements information.
+            Note:1) 'Announcement_Type': '0' for General_Announcements,'3' for Course_Announcements, 2) 'Announcement_OptSel':'0/1/2/3/' for 'View All/View Today/Last 7 Days/Last 30 Days'
+             </summary>
+             <param name="AnnouncementCredential">Announcements retrieval credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "message": "Succesfully retrieved announcements information.",
+               "response": 
+                  {  
+                    "AttachmentFiles": "",
+                    "Description": "",
+                    "FilePath": "",
+                    "PostedDate":""
+               }
+            Error:
+            {
+            "status": 0,
+            "message": "User does not have access to section/Error while retrieving announcements information."
+            }
+             </returns>
+        </member>
+        <member name="T:EducosoftAPI.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:EducosoftAPI.Models.TimeZoneDateTime">
+            <summary>
+            This class defined to handle the timezone depending on the user timezone ID
+            </summary>
+        </member>
+        <member name="M:EducosoftAPI.Models.TimeZoneDateTime.GetUserTimeZoneDateTime(System.String,System.DateTime)">
+            <summary>
+            Get the Datetime from the Input time using Timezone
+            </summary>
+            <param name="UserTimeZone"></param>
+            <param name="LocalDateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EducosoftAPI.Models.TimeZoneDateTime.getUserTimeZoneDateTimeIndex(System.String,System.DateTime,System.String)">
+            <summary>
+            Input Timezone,from timezone with specfied the input datatime
+            </summary>
+            <param name="UserTimeZone"></param>
+            <param name="LocalDateTime"></param>
+            <param name="inputTimeZone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EducosoftAPI.Models.TimeZoneDateTime.TimeZoneComparer.Compare(System.Object,System.Object)">
+            <summary>
+            Compare to objects
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.UserController.VerifyLogin(EducosoftAPI.Models.User.UserVerifyLoginCredential)">
+             <summary>
+            This api call takes VerifyLogin credential i.e., 'Email', 'Password' and
+            returns student details like 'User_FirstName', 'User_LastName', 'User_Email', 'UserId' with 'status', 'country' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in transaction of information.
+             </summary>
+             <param name="userVerifyLoginCredential">VerifyLogin credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": "1",
+               "message": "User is successfully verified",
+               "country" : "US",
+               "response:":
+                 {
+                     "User_FirstName":"",
+                     "User_LastName":"",
+                     "User_Email":"",
+                     "UserId":"",
+                 }
+            }
+            Error:
+            {
+                 "status": "0",
+                 "message": "User does not exist / Error message regarding the transaction failure"
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.UserController.ForgotPassword(EducosoftAPI.Models.User.UserForgetPasswordCredential)">
+             <summary>
+            This api call takes ForgetPassword credential i.e.,  'Email' to retrieve forgotten password and 
+            returns 'status' and 'message' upon Your password has been sent to your email id entered..
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in login.
+             </summary>
+             <param name="userForgetPasswordCredential">ForgetPassword credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "message": "Your password has been sent to your email id entered.",
+             }
+            Error:
+            {
+            "status": 0,
+            "message": "Username does not exist/Error message"
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.UserController.ResetPassword(EducosoftAPI.Models.User.UserResetPasswordCredential)">
+             <summary>
+            This api call takes ResetPassword credentials i.e., 'UserId', 'OldPassword' and 'NewPassword' 
+            returns 'status' and 'message' upon Your password has been changed successfully.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in reset password.
+             </summary>
+             <param name="userResetPasswordCredential">ResetPassword credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "message": "Your password has been changed successfully.",
+            Error:
+            {
+            "status": 0,
+            "message": "User does not exist/Error message"
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.UserController.ViewUser(EducosoftAPI.Models.User.UserViewCredential)">
+             <summary>
+            This api call takes ViewUser credential i.e., 'UserId' and
+            returns user details like 'address1', 'address2', 'cityName', 'countryName', 'emailId', 'firstName', 'language', 'lastName', 
+            'mobile', 'phone', 'salutation', 'stateName', 'timeZone', "timeZoneId":"", 'zipcode'  with 'status', 'country' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in transaction of information.
+             </summary>
+             <param name="userViewCredential">ViewUser credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": "1",
+               "message": "User is successfully verified",
+               "response:":
+                 {
+                     "timeZoneId":"",
+                     "timeZone":"",
+                     "studentId":"",
+                     "emailId":"",
+                     "salutation":"",
+                     "firstName":"" ,
+                     "lastName":"" ,
+                     "language":"" ,
+                     "address1":"",
+                     "address2":"",
+                     "cityName":"",
+                     "countryId":"",
+                     "countryName":"" ,
+                     "stateId":"",
+                     "stateName":"" ,
+                     "zipcode":"",
+                     "phone":"" ,
+                     "mobile":"" ,
+                     "imageName":"",
+                      "imagePath:"",
+                     "studentId":""
+                 }
+            }
+            Error:
+            {
+                 "status": "0",
+                 "message": "User does not exist / Error message regarding the transaction failure"
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.UserController.EditUser(EducosoftAPI.Models.User.UserProfileEditCredential)">
+             <summary>
+            This api call takes EditUser credential i.e., 'UserId', 'Salutation', 'Address1', 'Address2', 'City', 'FirstName', 'LastName', 
+            'CountryId', 'StateId', 'Mobile', 'Phone', 'ZipCode', 'strImage' and 'strImageType'
+            returns  
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in transaction of information.
+             Notes: 1) EditUser is required, 'UserId' and at least one field needed from EditUser credential.
+                    2) dropdown values of 'Salutation' :Mr.,Mrs.,Ms.,Dr.,Prof.
+                    3) 'strImage' is in Base64String format and 'strImageType' is the extension of image i.e, jpg, png etc.
+             </summary>
+             <param name="userProfileEditCredential">EditUser credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": "1",
+               "message": "User has updated successfully".
+            }
+            Error:
+            {
+                 "status": "0",
+                 "message": "User does not exist / Error message regarding the transaction failure"
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.UserController.GetCountryList">
+             <summary>
+            This api call takes GetCountryList 
+            returns Country list details like 'countryId', 'country_Name', with 'status' and 'message'.
+            'Status':'1' means Success and 'Status':'0' means failure/error in transaction of information.
+             </summary>
+             <returns>
+            Success:
+            {
+               "status": "1",
+               "message": "Country list are successfully verified",
+               "response:":
+                 {
+                     "country_Name":"",
+                     "countryId":""
+                 }
+            }
+            Error:
+            {
+                 "status": "0",
+                 "message": "Country list does not exist / Error message regarding the transaction failure"
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.UserController.GetStateList(System.String)">
+             <summary>
+            This api call takes GetStateList param required to specify in query string. i.e., 'CountryId' and
+            returns State list details like 'stateId', 'state_CountryId', 'state_Name' with 'status' and 'message'.
+            'Status':'1' means Success and 'Status':'0' means failure/error in transaction of information.
+             </summary>
+             <param name="CountryId">GetStateList param required to specify in query string.</param>
+             <returns>
+            Success:
+            {
+               "status": "1",
+               "message": "State list are successfully verified",
+               "response:":
+                 {
+                     "stateId":"",
+                     "state_CountryId":"",
+                     "state_Name":"",
+                 }
+            }
+            Error:
+            {
+                 "status": "0",
+                 "message": "CountryId does not exist / Error message regarding the transaction failure"
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.UserController.Support(EducosoftAPI.Models.User.UserSupportCredential)">
+             <summary>
+            This api call takes User Support credential i.e., 'UserId', 'SectionId', 'UserType', 'PhoneNumber', 'TellAboutText', 'AttachmentFile', 'Date', 'Time' and
+            returns Support details like 'UserId' with 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in transaction of information.
+             Note: 1) Optional Fields are 'AttachmentFile', Date', 'Time', 2)'AttachmentFile': AttachmentFile' is in Base64String format
+             </summary>
+             <param name="userSupportCredential">UserSupport credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": "1",
+               "message": Your support email has been successfully sent.",
+               "response:":
+                 {
+                     "UserId":"",
+                 }
+            }
+            Error:
+            {
+                 "status": "0",
+                 "message": "User does not exist / Error message regarding the transaction failure"
+            }
+             </returns>
+        </member>
+        <member name="T:EducosoftAPI.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:EducosoftAPI.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.SurveyUserController.GetTestUser">
+            <summary>
+            This api is for testing purpose only.
+             </summary>    
+        </member>
+        <member name="M:EducosoftAPI.Controllers.SurveyUserController.ECFSaveSurveyUser(EducosoftAPI.Models.User.UserCredential)">
+             <summary>
+            This api call takes SurveyUser credential i.e., 'Name', 'Email', 'Mobile No' and
+            return SurveyUserId. Note: If user already exists with the Email id then Name and Mobile No will be updated.
+            with 'status' and 'message' upon successful transaction of information.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in transaction of information.
+             </summary>
+             <param name="userCredential">SurveyUser credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": "1",
+               "message": "Success message related to transaction of information",
+               "response":
+               {                      
+            	    "SurveyUserId":"18"
+               }
+            }
+            Error:
+            {
+                 "status": "0",
+                 "message": "Error message related to transaction of information"
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.SurveyUserController.ESP_AppSaveSurveyFeedback(EducosoftAPI.Models.User.UserCredentialSurveyFeedback)">
+             <summary>
+            This api call takes User Credential SurveyFeedback i.e., 'Email', 'Feedback' and
+            return SurveyUserId, SurveyFeedbackId . Note: If user's feedback already exists with the Email id then feedback data will be updated.
+            with 'status' and 'message' upon successful transaction of information.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in transaction of information.
+             </summary>
+             <param name="userCredentialSurveyFeedback">SurveyFeedback User Credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "message": "Success message related to transaction of information",
+               "response":
+               {               
+            		SurveyFeedbackId=13,       
+            		SurveyUserId=18        
+               }
+            }
+            Error:
+            {
+            "status": 0,
+            "message": "Error message related to transaction of information"
+            }
+             </returns>
+        </member>
+        <member name="T:EducosoftAPI.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EducosoftAPI.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.AssessmentsController.GetAssessmentList(EducosoftAPI.Models.Assessments.AssessmentCredential)">
+             <summary>
+            This api call takes Assessment Credential i.e., 'UserId', 'SectionId', 'CourseId', 'UserCurrZoneDate', 'AssessmentType' and 
+            return Assessment list details like 'ActualAttempts', 'MaxAttempts', 'Test_HasPreRequisites', 'Test_IsAutoPracticeTest', 'TestDate', 'TestEndDate', 'TestGBCataegory', 
+            'TestMaxScoreObt', 'TestId', 'TestName', 'TestNumQues', 'TestStatus', 'InitFlag', 'TestSettingsMode', 'TestType', 'TestTimeAllotted', 'Test_LastAttemptedUserId', 'TestPaperResultUrl' and 'Test_BestScoreUserId' with 'status' and 'message' upon successful retrieval of assessment information.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in retrieving assessments information.
+            Note:
+            1) 'AssessmentType': '0' All,'1' for Homework, '2' for 'Quiz/Test', '3' for 'Practice', '4' for 'Custom', 
+            2) 'TestStatus': '1' for Test Active,'2' for Test Inactive, '3' for Test Completed, '4' for Test Expired, '5' for Exempted, '6' for Retake, '7' for Resume, '8' for Locked, '9' for Notapplicable, '10' for Improve.
+            3) 'AssessmentType' for RMA Course : 0 -Module Diagnostic Test(s),1-Module Mastery Test(s),2-Study Plan Test(s),3-Module Placement Test(s),
+            4)  Assessment list details included for RMA Course like :'TestModuleId', 'CRModule_Name', 'UserActiveModule_Status', 'Test_IsLabTest', 'Test_ModulePercent', 'UserActiveModule_Diagnostic', 'IsExpmptLevelTest', 'CRModuleId', 'MMPT_ModuleId', 'Test_AutoPracticeTest', 'StudyPlanDuration', 'UserActiveModule_TestScore', 'SubmitStatus', 'GlobalPswd', 'SubmitStatus', 'TestSettings_TestModeType', 'isExemptByDiagnoSticTest', 'Test_Penaltypercent', 'SubmitStatus', 'TestStatus_Desc'
+             </summary>
+             <param name="AssessmentCredential">Assessments retrieval credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "message": "Succesfully retrieved assessments information.",
+               "response": 
+                  {  
+                   "TestId":"",
+                   "TestName" : "",
+                   "Test_IsAutoPracticeTest":"",
+                   "TestGBCataegory" : "",
+                   "TestNumQues" : "",
+                   "MaxAttempts" : "",
+                   "ActualAttempts" : "",
+                   "TestTimeAllotted" : "",
+                   "TestDate" : "",
+                   "TestEndDate" : "",
+                   "TestMaxScoreObt" : "",
+                   "TestSettingsMode":"",
+                   "InitFlag":"", 
+                   "TestType":"",
+                   "TestStatus":"",
+                   "Test_HasPreRequisites"="",
+                   "TestPaperResultUrl"="",
+                   "TestModuleId" :"",
+                   "CRModule_Name" :"",
+                   "UserActiveModule_Status" :"",
+                   "Test_IsLabTest" :"",
+                   "Test_ModulePercent" :"",
+                   "UserActiveModule_Diagnostic" :"",
+                   "IsExpmptLevelTest" :"",
+                   "Course_ModuleId" :"",
+                   "MMPT_ModuleId" :"",
+                   "Test_AutoPracticeTest" :"",
+                   "StudyPlanDuration" :"",
+                   "UserActiveModule_TestScore" :"",
+                   "SubmitStatus" :"",
+                   "GlobalPswd" :"",
+                   "TestSettings_TestModeType" :"",
+                   "UserActiveModule_TestScore" :"",
+                   "isExemptByDiagnoSticTest" :"",
+                   "Test_Penaltypercent":"",
+                   "TestStatus_Desc":"",
+                   "Test_BestScoreUserId":"",
+                   "Test_LastAttemptedUserId":"",
+               }
+            Error:
+            {
+            "status": 0,
+            "message": "User does not have access to section/Error while retrieving assessment information."
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.AssessmentsController.GetAssessmentList(EducosoftAPI.Models.Assessments.InitTestPaperCredential)">
+             <summary>
+            This api call takes InitTestPage Credential i.e., 'TestId', 'UserId', 'SectionId', 'CourseId' and 
+            return Assessment list details like 'TestId','TestName','TestHeadName','TestDate','TestEndDate','TotalQues','TotalMarks','TestType','Test_HasPreRequisite','Test_IsComp','Test_ModuleId','TotalTime',TestDate,DispRes','ResDate','IsAutoPracticeTest','NoAtmpts','NegMrks','Penaltypercent',
+            'PenaltyExpDate','DynDispFlag','DynDispMode','ModulePercent','IsStudyPlan','PreReqLOsInfo','PreReqAttachedAssessmentInfo','PreqAttendancePercentInfo','PreReqVideosInfo' with 'status' and 'message' upon successful retrieval of assessment information.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in retrieving assessments information.
+            Note:
+            1)'PreReqLOsInfo' return list details like 'TestId','TestPreReqId','TestPreReq_LevelID','TestPreReq_TimeAlloted','TestPreReq_LevelParent','TestPreReq_LevelLo','CRTimeSpent_TimeSpentMin','CourseHirarchy', 'FilePath'.
+            2)'PreReqVideosInfo' return list details like 'TestId','TestPrevideoID','TestPreReqVideo_uploadID','TestPreReqVideo_MinTime','TestPreReqVideo_FileName','TestPreReqVideo_TimeSpent','TestPreReqVideo_VideoType','IsAdminVideo','FilePath'.
+            3)'PreqAttendancePercentInfo' return list details like 'TestId','Min_AttendancePercent','TAttendancePercentObtain','TAttenPreReqTestAtm'.
+            4)'PreReqAttachedAssessmentInfo' return list details like 'TestId','TestPreAssID','TestPreAss_PreReqTestId','TestPreAss_MaxScore','TotalMarksObtained','TotalScoreForPreReq','PreRequistitTestName','TotalQuestForMainAss',
+             'TestUserID','PreReqTotQuesWithSolVarient','preReqMaxAttempt','preReqAttemptCount','TestEndDate','Test_Type','Test_Penaltypercent','Test_PreReqGroup','IsLabTest','IsEnableLockdownBrowser'
+             </summary>
+             <param name="InitPageCredential">Assessments retrieval credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "message": "Succesfully retrieved assessments information.",
+               "response": 
+                  {  
+                   "TestId" : "",
+                   "TestName":"",
+                   "TestHeadName" : "",
+                   "TestType" : "",
+                   "TestDate" : "",
+                   "TestEndDate:"",
+                   "TotalQues" : "",
+                   "TotalMarks":"",
+                   "Test_HasPreRequisite" : "",
+                   "Test_IsComp" : "",
+                   "TotalTime" : "",
+                   "TestDate" : "",
+                   "DispRes" : "",
+                   "ResDate" : "",
+                   "IsPracticeTest":"",
+                   "NoAtmpts":"", 
+                   "NegMrks":"",
+                   "Penaltypercent ":"",
+                   "PenaltyExpDate ":"",
+                   "DynDispFlag ":"",
+                   "DynDispMode ":"",
+                   "ModulePercent ":"",
+                   "IsStudyPlan ":"",
+                   "IsEnableLockdownBrowser":"",
+                         
+                   "PreReqLOsInfo":"",
+                   "PreReqAttachedAssessmentInfo":"",
+                   "PreqAttendancePercentInfo":"",
+                   "PreReqVideosInfo":"",
+               }
+            Error:
+            {
+            "status": 0,
+            "message": "User does not have access to section/Error while retrieving assessment information."
+            }
+             </returns>
+        </member>
+        <member name="T:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey.#ctor(EducosoftAPI.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,EducosoftAPI.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,EducosoftAPI.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,EducosoftAPI.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create one using <see cref="T:EducosoftAPI.Areas.HelpPage.ObjectGenerator"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},EducosoftAPI.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:EducosoftAPI.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.InternalMailController.GetInternalMailList(EducosoftAPI.Models.InternalMail.InternalMailCredential)">
+             <summary>
+            This api call takes InternalMailCredential i.e., 'UserId' and 
+            return InternalMail list details like 'MsgRecieverId', 'MsgSenderId', 'MsgSender_Date', 'MsgSender_Attachment', 'MsgSender_Body', 'MsgSender_Subject', 'MsgSender_Sender_SectionId', 'Section_Name', 'Course_Name', 'LastName', 'FirstName', 'SectionId'
+            with 'status' and 'message' upon successful retrieval of InternalMail information.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in retrieving InternalMail information.
+             </summary>
+             <param name="InternalMailCredential">InternalMail retrieval credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "message": "Succesfully retrieved InternalMail information.",
+               "response": 
+                  {  
+                    "MsgRecieverId": "",
+                    "MsgSender_Date": "",
+                    "MsgSender_Attachment": "",
+                    "MsgSender_Body":"",
+                    "MsgSender_Subject":"",
+                    "MsgSender_Sender_SectionId":"",
+                    "Section_Name":"",
+                    "Course_Name":"",
+                    "LastName":"",
+                    "FirstName":"",
+                    "SectionId":""
+               }
+            Error:
+            {
+            "status": 0,
+            "message": "User does not have access to section/Error while retrieving Internal Mail information."
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.InternalMailController.GetInternalMailView(EducosoftAPI.Models.InternalMail.InternalMailViewCredential)">
+             <summary>
+            This api call takes InternalMailViewCredential i.e., 'UserId', 'MsgSenderId' and 
+            return InternalMail list details like 'MsgRecieverId', 'MsgSenderId', 'MsgSender_Date', 'MsgSender_Attachment', 'MsgSender_Body', 'MsgSender_Subject', 'MsgSender_Sender_SectionId', 'Section_Name', 'Course_Name', 'LastName', 'FirstName', 'SectionId', 'FileAttachmentlist' ,'FromRecieveMailIds'
+            with 'status' and 'message' upon successful retrieval of InternalMail information.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in retrieving InternalMail information.
+             </summary>
+             <param name="InternalMailViewCredential">InternalMailView retrieval credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "message": "Succesfully retrieved InternalMail information.",
+               "response": 
+                  {  
+                    "MsgRecieverId": "",
+                    "MsgSender_Date": "",
+                    "MsgSender_Attachment": "",
+                    "MsgSender_Body":"",
+                    "MsgSender_Subject":"",
+                    "MsgSender_Sender_SectionId":"",
+                    "Section_Name":"",
+                    "Course_Name":"",
+                    "LastName":"",
+                    "FirstName":"",
+                    "SectionId":"",
+                    "FileAttachmentlist":"",
+                    "FromRecieveMailIds":"",
+               }
+            Error:
+            {
+            "status": 0,
+            "message": "User does not have access to section/Error while retrieving Internal Mail information."
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.InternalMailController.DeleteMail(EducosoftAPI.Models.InternalMail.DeleteInternalMailCredential)">
+             <summary>
+            This api call takes DeleteInternalMailCredential i.e., 'MsgRecieverId', and 
+            return InternalMail list details like 'MsgRecieverId' with 'status' and 'message' upon successfully deleted internal Mail.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in retrieving Delete InternalMail information.
+             </summary>
+             <param name="DeleteInternalMailCredential">DeleteInternalMail retrieval credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "message": "Succesfully deleted internal Mail.",
+               "response": 
+                  {  
+                    "MsgRecieverId": "",
+                 }
+            Error:
+            {
+            "status": 0,
+            "message": "User does not have access to section/Error while retrieving Internal Mail information."
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.InternalMailController.SendInternalMail(EducosoftAPI.Models.InternalMail.SendInternalMailCredential)">
+             <summary>
+            This api call takes SendInternalMailCredential i.e., 'UserId', 'Subject', 'Body', 'MsgSendToUsersIds', 'MsgSendBccUsersIds' 'SectionId', 'AttachmentBase64StringFiles','AttachmentOriginalFiles' and 
+            return SendInternalMail list details like 'UserId', 'NonAuthorizedUserIds' with 'status' and 'message' upon Message has been sent successfully.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in retrieving Send InternalMail information.
+             Note:  
+                 1) 'NonAuthorizedUserIds': if you mention any NonAthorized user id(s) in 'MsgSendToUsersIds', 'MsgSendBccUsersIds' then those user id(s) has displays in this field.
+                 2) 'AttachmentBase64StringFiles': is in Base64String format, if AttachmentBase64StringFiles are more than one then add file suffix with ','.
+                 3) 'AttachmentOriginalFiles': is in file name(s) should be sequence of 'AttachmentBase64StringFiles', if AttachmentOriginalFiles are more than one then add file suffix with ','.
+                 
+             </summary>
+             <param name="SendInternalMailCredential">SendInternalMail retrieval credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "message": "Message has been sent successfully.",
+               "response": 
+                  {  
+                    "UserId": "",
+                    "NonAuthorizedUserIds": "",
+                  }
+               }
+            Error:
+            {
+            "status": 0,
+            "message": "User doenot exit/Error while retrieving Send Internal Mail information."
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.CourseController.GetCourseList(EducosoftAPI.Models.Course.CourseCredential)">
+             <summary>
+            This api call takes CourseCredential i.e.,  'userId' and 'userType'  and 
+            return course list details like 'Course_Name', 'Course_ISDev', 'CourseId', 'TermId', 'Term_Name', 'SectionId', 'Section_Name' with 'status' and 'message' upon successful retrieval of user course information.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in retrieving course information.
+             </summary>
+             <param name="CourseCredential">Course(s) retrieval credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "message": "Successfully retrieved user course information.",
+               "response": 
+                  {  
+                    "Course_Name": "",
+                    "Course_ISDev":"",
+                    "CourseId":"",
+                    "TermId": "",
+                    "Term_Name": "",
+                    "SectionId": "",
+                    "Section_Name":""
+               }
+            Error:
+            {
+            "status": 0,
+            "message": "User does not have access to section/Error while retrieving course information."
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.CourseController.GetCourseLevelInfo(EducosoftAPI.Models.Course.CourseLevelCredential)">
+             <summary>
+            This api call takes CourseLevelCredential i.e., 'UserId','SectionId','CourseId','CRLevelId'  and 
+            return course level details like 'BlockedLevel', 'CR_LSchedule_FromDate', 'CR_LSchedule_ToDate', 'CRLevel_Name', 'CRLevel_ParentId', 'CRLevelId', 'Depth', 'HASNOLEVEL', 'HASNOLO', 'ISLO', 'LOID', 'LOType', 'SRLNo', 'TimeSpend'  with 'status' 
+            and 'message' upon successful retrieval of course level information.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in retrieving course level information.
+            Note:'CRLevelId': default value is '-1'
+             </summary>
+             <param name="CourseLevelCredential">Course level Details(s) retrieval credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "message": "Successfully retrieved course level information.",
+               "response": 
+                  {  
+                     "BlockedLevel":"",
+                     "CR_LSchedule_FromDate":"",
+                     "CR_LSchedule_ToDate":"",
+                     "CRLevel_Name":"",
+                     "CRLevel_ParentId":"",
+                     "CRLevelId":"",
+                     "Depth":"",
+                     "HASNOLEVEL":"",
+                     "HASNOLO":"",
+                     "ISLO":"",
+                     "LOID":"",
+                     "LOType":"",
+                     "SRLNo":"",
+                     "TimeSpend":""
+               }
+            Error:
+            {
+            "status": 0,
+            "message": "Error while retrieving course level information."
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.CourseController.GetCourseSelectedLevelInfo(EducosoftAPI.Models.Course.CourseLevelCredential)">
+             <summary>
+            This api call takes GetCourseSelectedLevelInfo i.e., 'UserId', 'SectionId', 'CourseId', 'CRLevelId'  and 
+            return course level details like 'CRLevel_Name', 'CRLevel_ParentId', 'CRLevelId', 'Depth', 'HASNOLEVEL', 'HASNOLO', 'ISLO', 'LevelHierarchy', 'LOID', 'LOType', 'SRLNo', 'TimeSpend', 'FilePath' with 'status 
+            and 'message' upon successful retrieval of course level information.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in retrieving course level information.
+             </summary>
+             <param name="CourseLevelCredential">Course level Details(s) retrieval credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "levelHierarchy":"",
+               "message": "Successfully retrieved course level information.",
+               "response": 
+                  {  
+                     "CRLevel_Name":"",
+                     "CRLevel_ParentId":"",
+                     "CRLevelId":"",
+                     "Depth":"",
+                     "HASNOLEVEL":"",
+                     "HASNOLO":"",
+                     "ISLO":"",
+                     "LevelHierarchy":"",
+                     "LOID":"",
+                     "LOType":"",
+                     "SRLNo":"",
+                     "TimeSpend":"",
+                     "FilePath":""
+               }
+            Error:
+            {
+            "status": 0,
+            "message": "Error while retrieving course level information."
+            }
+             </returns>
+        </member>
+        <member name="M:EducosoftAPI.Controllers.CourseController.SaveCRLOTimeSpent(EducosoftAPI.Models.Course.CRLOTimeSpentCredential)">
+             <summary>
+            This api call takes CRLOTimeSpentCredential i.e., 'UserId','SectionId','CourseId','CRLOId','TimeSpent'  and 
+            return with 'status' and 'message' upon Time spent has been successfully Updated.
+            Incase of failure, it returns only 'status' and 'message'.
+            'Status':'1'  means Success and  'Status':'0'  means failure/error in saving time spent.
+            Note:'TimeSpent' value should be in seconds.
+             </summary>
+             <param name="CRLOTimeSpentCredential">Course level Details(s) retrieval credential to specify in request body in json format.</param>
+             <returns>
+            Success:
+            {
+               "status": 1,
+               "message": "Time spent has been successfully Updated",
+            Error:
+            {
+            "status": 0,
+            "message": "Error occured while saving time spent."
+            }
+             </returns>
+        </member>
+        <member name="T:EducosoftAPI.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+    </members>
+</doc>

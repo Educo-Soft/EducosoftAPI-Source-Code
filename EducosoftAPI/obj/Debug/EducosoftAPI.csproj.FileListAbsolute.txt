@@ -1,0 +1,6 @@
+C:\EducosoftAPI_Files\EducosoftAPI\bin\EducosoftAPI.dll
+C:\EducosoftAPI_Files\EducosoftAPI\bin\EducosoftAPI.pdb
+C:\EducosoftAPI_Files\EducosoftAPI\bin\XmlDocument.xml
+C:\EducosoftAPI_Files\EducosoftAPI\obj\Debug\EducosoftAPI.csprojResolveAssemblyReference.cache
+C:\EducosoftAPI_Files\EducosoftAPI\obj\Debug\EducosoftAPI.dll
+C:\EducosoftAPI_Files\EducosoftAPI\obj\Debug\EducosoftAPI.pdb
