@@ -4,3 +4,12 @@ C:\EducosoftAPI_Files\EducosoftAPI\bin\XmlDocument.xml
 C:\EducosoftAPI_Files\EducosoftAPI\obj\Debug\EducosoftAPI.csprojResolveAssemblyReference.cache
 C:\EducosoftAPI_Files\EducosoftAPI\obj\Debug\EducosoftAPI.dll
 C:\EducosoftAPI_Files\EducosoftAPI\obj\Debug\EducosoftAPI.pdb
+D:\EducoSoft\EducosoftAPI-Source-Code\EducosoftAPI\bin\EducosoftAPI.dll.config
+D:\EducoSoft\EducosoftAPI-Source-Code\EducosoftAPI\bin\EducosoftAPI.dll
+D:\EducoSoft\EducosoftAPI-Source-Code\EducosoftAPI\bin\EducosoftAPI.pdb
+D:\EducoSoft\EducosoftAPI-Source-Code\EducosoftAPI\bin\XmlDocument.xml
+D:\EducoSoft\EducosoftAPI-Source-Code\EducosoftAPI\obj\Debug\EducosoftAPI.csproj.AssemblyReference.cache
+D:\EducoSoft\EducosoftAPI-Source-Code\EducosoftAPI\obj\Debug\EducosoftAPI.csproj.CoreCompileInputs.cache
+D:\EducoSoft\EducosoftAPI-Source-Code\EducosoftAPI\obj\Debug\EducosoftAPI.csproj.CopyComplete
+D:\EducoSoft\EducosoftAPI-Source-Code\EducosoftAPI\obj\Debug\EducosoftAPI.dll
+D:\EducoSoft\EducosoftAPI-Source-Code\EducosoftAPI\obj\Debug\EducosoftAPI.pdb
